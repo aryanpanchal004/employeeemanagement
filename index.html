@@ -1,53 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employe Mangement Portal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Management Portal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #f1f1f1;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.4rem;
+      color: #ffdd57;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    form input {
+      padding: 12px 16px;
+      font-size: 1rem;
+      border: 1px solid #555;
+      border-radius: 8px;
+      width: 250px;
+      background-color: #2c2c3e;
+      color: #f1f1f1;
+    }
+
+    form input::placeholder {
+      color: #aaa;
+    }
+
+    form button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+      font-weight: bold;
+    }
+
+    form button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(45deg, #0072ff, #00c6ff);
+    }
+
+    .table-container {
+      background-color: #2b2b3c;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    thead {
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+    }
+
+    th {
+      color: white;
+      font-weight: 600;
+      padding: 14px;
+      text-align: left;
+    }
+
+    td {
+      padding: 14px;
+      border-bottom: 1px solid #444;
+      color: #e0e0e0;
+    }
+
+    tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    td button {
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-right: 5px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .edit-btn {
+      background: linear-gradient(45deg, #ffafbd, #ffc3a0);
+    }
+
+    .delete-btn {
+      background: linear-gradient(45deg, #f85032, #e73827);
+    }
+
+    @media (max-width: 600px) {
+      form input {
+        width: 100%;
+      }
+
+      th, td {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <style>
-        body{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        form input, form button {
-            margin: 5px;
-            padding: 8px;
-        }
-        table {
-            margin-top: 20px;
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td{
-            border: 1px solid #747272;
-            padding: 10px;
-            text-align: left;
-        }
-    </style>
 
-    <h2>
-        Employe Mangement Portal
-    </h2>
-    <form id = "employee-form">
-        <input type="text" id="name" placeholder="Name" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="text" id="role" placeholder="Role" required>
-        <button type="submit">Submit</button>
+  <h2>Employee Management Portal</h2>
 
-    </form>
-    <table id = "employee-table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>E-mail</th>
-                <th>Role</th>
-                <th>Action</th>
-            </tr>
-        </thead>
+  <form id="employee-form">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="role" placeholder="Role" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="table-container">
+    <table id="employee-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>E-mail</th>
+          <th>Role</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamic rows go here -->
+      </tbody>
     </table>
-    <script src="indexx.js">
-    </script>
+  </div>
 
+  <script src="index.js"></script>
 </body>
 </html>
