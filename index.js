@@ -1,4 +1,5 @@
-let employees = [];
+
+let employees = JSON.parse (localStorage.getItem("employees")) || [];
 let editIndex = null;
 
 
@@ -7,6 +8,10 @@ const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const roleInput = document.getElementById("role");
 const tableBody = document.querySelector("#employee-table");
+
+function savetolocalStorage(){
+    localStorage.setItem("employees", JSON.stringify(employees));
+}
 
 // event listener for adding or updating employee
 
@@ -28,6 +33,8 @@ form.addEventListener("submit", function(e){
         editIndex=null;
         form.querySelector("button").innerHTML="Add Employee";
     }
+
+    savetolocalStorage();
     form.reset();
     renderTable();
 })
@@ -62,6 +69,11 @@ function editEmployee(index){
 function deleteEmployee(index){
     if(confirm("Are you sure to delete it ? ")){
         employees.splice(index, 1);
+        savetolocalStorage();
         renderTable();
     }
 }
+
+window.onload = function(){
+    renderTable();
+    };
